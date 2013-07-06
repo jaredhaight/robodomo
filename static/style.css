@@ -1,0 +1,52 @@
+body {
+    color: #333;
+}
+td {
+    border: solid;
+    padding: 10px;
+    border-width: 1px;
+}
+
+.result {
+    margin: 10px;
+}
+.pure-form input[type=text] {
+    margin: 5px;
+}
+
+#header {
+    text-align: center;
+    width: 100%;
+    font-weight: 200;
+}
+
+#header h1 {
+    margin: 0;
+}
+
+.flash {
+    background: yellow;
+    padding: 10px;
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.key {
+    font-weight: 600;
+}
+
+.value {
+    color: #888
+}
+
+.pure-button.primary {
+    background-color: #99CCff;
+    color: #fff;
+}
+
+.pure-button.secondary {
+    background-color: #99FF33;
+    color: #fff;
+}
