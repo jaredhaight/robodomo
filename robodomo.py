@@ -12,10 +12,10 @@ def list_data():
     results = serverClient.find()
     return render_template('list.html', results=results)
 
-@app.route('/resource/<resID>')
+@app.route('/servers/<resID>')
 def view_resource(resID):
     results = serverClient.find(key="_id", value=resID)
-    return render_template("resource/view.html", results=results[0])
+    return render_template("servers/view.html", results=results[0])
 
 @app.route('/delete/<objid>')
 def delete_view(objid):
