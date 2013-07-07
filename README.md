@@ -13,12 +13,13 @@ Things that have been done
 --------------------------
 * Registering servers and stats works
 * The response for a server contains a nicely formatted list of stats organized by type and then with date and value pairs
+* Basic data validation/error handling
+* Basic front end using Flot for charts
 
 Things that need to be done
 ---------------------------
 
-* Error handling and data validation on the API
+* More error handling and data validation on the API
 * Authentication of some sort
 * Filtering and searching using the API (ex Tags, Date ranges, etc)
-* Front end (planning on using ChartJS for this)
-
+* Make frontend prettier
