@@ -14,8 +14,9 @@ def list_data():
 
 @app.route('/servers/<resID>')
 def view_resource(resID):
-    results = serverClient.find(key="_id", value=resID)
-    return render_template("servers/view.html", results=results[0])
+    apiClient = apiServers()
+    results = apiClient.get(resID)
+    return render_template("servers/view.html", results=results)
 
 @app.route('/delete/<objid>')
 def delete_view(objid):

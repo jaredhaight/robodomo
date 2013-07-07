@@ -1,8 +1,48 @@
 {% extends "base.html" %}
+{% block header %}
+      <h1>Stats for {{ results["hostname"] }}</h1>
+{% endblock %}
 {% block body %}
-<div class="pure-g-r">
   <div class="pure-u-1">
-    {{ results }}
+    {% for stat in results['stats'] %}
+    <div class="chartWrap">
+      {{ stat }}
+      <div id=chart-{{ stat }} style="width:800px; height:400px; margin: 0 auto"></div>
+    </div>
+    {% endfor %}
   </div>
 </div>
+{% endblock %}
+{% block javascript %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="/static/js/jquery.flot.min.js"></script>
+<script src="/static/js/jquery.flot.categories.min.js"></script>
+<script>
+  $( document ).ready(function() {
+    $.getJSON("/api/servers/{{ results["_id"] }}", function(data) {
+    var stats = data.stats;
+    $.each(stats, function(key, val) {
+      var statList = [];
+      $.each(val, function(date, stat) {
+        var statPair = [date,parseInt(stat)];
+        statList.push(statPair);
+      });
+         $.plot($("#chart-"+key), [statList], {
+            series:{
+              lines: {
+                fill: true
+              }
+            },
+            yaxis: {
+              max: 100
+            },
+            xaxis: {
+              mode: "categories",
+              tickLength: 0
+            }
+         });
+      });
+    });
+  });
+</script>
 {% endblock %}
