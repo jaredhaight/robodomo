@@ -1,75 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
 <div class="pure-g-r">
-  <div class="pure-u-1-2">
+  <div class="pure-u-1">
     {% for result in results %}
-    <div class="result">
-      <table>
-      {% for key,value in result.iteritems() %}
-        <tr>
-          <td class="key">{{ key }}</td>
-          <td class="value">{{ value }}</td>
-        </tr>
-      {% endfor %}
-      </table>
-      <a href="/delete/{{ result["_id"] }}" class="deleteLink">Delete this item</a>
-    </div>
+    <p><a href="/servers/{{ result["_id"] }}">{{ result["name"] }}</a></p>
     {% endfor %}
   </div>
-  <div class="pure-u-1-2">
-    <label for="key">Key</label>
-    <input type="text" id="key" name="key" value="">
-    <button class="pure-button secondary" id="filldetails" onclick="addFields()">Add</button>
-    <form action="{{ url_for('add_data') }}" method=post class="pure-form pure-form-aligned">
-      <fieldset>
-        <div id="container" class="pure-control-group">
-
-       </div>
-       <div class="pure-controls">
-         <button type="submit" class="pure-button primary">Feed me!</button>
-       </div>
-       </fieldset>
-    </form>
-  </div>
-</div>
-
-    <script type='text/javascript'>
-        function addFields(){
-            // Number of inputs to create
-            var key = document.getElementById("key").value;
-            // Container <div> where dynamic content will be placed
-            var container = document.getElementById("container");
-            /* Clear previous contents of the container
-                while (container.hasChildNodes()) {
-                container.removeChild(container.lastChild);
-            }
-            */
-                var label = document.createElement("label");
-                label.for = key;
-                label.appendChild(document.createTextNode(key));
-                container.appendChild(label);
-                var input = document.createElement("input");
-                input.type = "text";
-                input.name = key;
-                container.appendChild(input);
-                // Append a line break
-                container.appendChild(document.createElement("br"));
-
-          /*for (i=0;i<number;i++){
-                // Append a node with a random text
-                //container.appendChild(document.createTextNode("Field " + (i+1)));
-                // Create an <input> element, set its type and name attributes
-                var label = document.createElement("label");
-                label.for = "field" + i;
-                label.appendChild(document.createTextNode("Field " +i));
-                container.appendChild(label);
-                var input = document.createElement("input");
-                input.type = "text";
-                input.name = "field" + i;
-                container.appendChild(input);
-                // Append a line break
-                container.appendChild(document.createElement("br"));
-            }*/
-        }
-    </script>
 {% endblock %}

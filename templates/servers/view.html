@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block header %}
-      <h1>Stats for {{ results["hostname"] }}</h1>
+      <h1>Stats for {{ results["name"] }}</h1>
 {% endblock %}
 {% block body %}
+<div class="pure-g-r">
   <div class="pure-u-1">
     {% for stat in results['stats'] %}
     <div class="chartWrap">
       {{ stat }}
-      <div id=chart-{{ stat }} style="width:800px; height:400px; margin: 0 auto"></div>
+      <div id=chart-{{ stat }} style="width:1024px; height:400px; margin: 0 auto"></div>
     </div>
     {% endfor %}
   </div>
@@ -32,9 +33,6 @@
               lines: {
                 fill: true
               }
-            },
-            yaxis: {
-              max: 100
             },
             xaxis: {
               mode: "categories",
