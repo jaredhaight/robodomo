@@ -6,6 +6,24 @@ body {
     text-align: center;
 }
 
+#header a {
+    display: block;
+    margin: 10px;
+    border: solid;
+    padding: 10px;
+    border-color: #ccc;
+    background: #eee;
+    color: #333;
+    text-decoration: none;
+}
+
+#header a:hover {
+    background: #ccc;
+}
+
+#headerBG {
+    background: #000
+}
 .chartWrap {
     text-align: center;
     margin-bottom: 20px;
