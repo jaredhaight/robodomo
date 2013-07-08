@@ -9,7 +9,8 @@ api = restful.Api(app)
 
 @app.route('/servers')
 def list_data():
-    results = serverClient.find()
+    client = apiServersList()
+    results = client.get()
     return render_template('list.html', results=results)
 
 @app.route('/servers/<resID>')
