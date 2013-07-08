@@ -3,9 +3,28 @@ body {
 }
 
 #header {
-    color: #fff;
+    color: #BDBDBD;
     padding-left: 15px;
     position: fixed;
+}
+
+#header h1 {
+    color: #FAFAFA;
+}
+
+#headerBG {
+    background: #303030;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 80%;
+    left: 0;
+    z-index: -1;
+}
+
+#serverList {
+    margin-left: 10px;
+
 }
 
 .statLink {
@@ -25,16 +44,6 @@ body {
     background: #ccc;
 }
 
-#headerBG {
-    background: #303030;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 80%;
-    left: 0;
-    z-index: -1;
-}
-
 .noStatsMsg {
     text-align: center;
     margin-top: 75px;
@@ -42,5 +51,6 @@ body {
 
 .chartWrap {
     text-align: center;
+    margin-top: 10px;
     margin-bottom: 20px;
 }

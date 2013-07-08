@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block header %}
       <h1>{{ results["name"] }}</h1>
-      <p>Type: {{ results["type"] }}</p>
+      <p>{{ results["type"] }}</p>
       {% if results["tags"] %}
         <p>Tagged with
         {% for tag in results["tags"] %}
-          <a href="/servers?tag={{ tag }}">{{ tag }}</a>
+          <a href="/servers/?tag={{ tag }}">{{ tag }}</a>
         {% endfor %}
         </p>
       {% endif %}
