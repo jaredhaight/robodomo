@@ -2,13 +2,23 @@
 {% block header %}
       <h1>{{ results["name"] }}</h1>
       <p>Type: {{ results["type"] }}</p>
+      {% if results["tags"] %}
+        <p>Tagged with
+        {% for tag in results["tags"] %}
+          <a href="/servers?tag={{ tag }}">{{ tag }}</a>
+        {% endfor %}
+        </p>
+      {% endif %}
       {% for stat in results['stats'] %}
-      <a href="#{{ stat }}">{{ stat }}</a>
+      <a class="statLink" href="#{{ stat }}">{{ stat }}</a>
       {% endfor %}
 {% endblock %}
 {% block body %}
 <div class="pure-g-r">
   <div class="pure-u-1">
+  {% if not results["stats"] %}
+    <p class="noStatsMsg">There are no stats logged for this server.</p>
+  {% else %}
     {% for stat in results['stats'] %}
     <div class="chartWrap">
       <a name={{ stat }}></a>
@@ -16,6 +26,7 @@
       <div id=chart-{{ stat }} style="max-width:800px; height:400px; margin: 0 auto"></div>
     </div>
     {% endfor %}
+  {% endif %}
   </div>
 </div>
 {% endblock %}

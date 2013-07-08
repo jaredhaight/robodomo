@@ -2,7 +2,7 @@
 {% block body %}
 <div class="pure-g-r">
   <div class="pure-u-1">
-    {% for result in results %}
+    {% for result in results["servers"] %}
     <p><a href="/servers/{{ result["_id"] }}">{{ result["name"] }}</a></p>
     {% endfor %}
   </div>
